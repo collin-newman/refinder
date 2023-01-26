@@ -1,4 +1,4 @@
-defmodule RefinderWeb.PageController do
+defmodule RefinderWeb.MapController do
   use RefinderWeb, :controller
 
   def index(conn, _params) do

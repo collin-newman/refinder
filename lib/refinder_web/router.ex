@@ -17,7 +17,7 @@ defmodule RefinderWeb.Router do
   scope "/", RefinderWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", MapController, :index
   end
 
   # Other scopes may use custom stacks.
