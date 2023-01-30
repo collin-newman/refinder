@@ -6,7 +6,7 @@ defmodule RefinderWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {RefinderWeb.LayoutView, :root}
-    plug :protect_from_forgery
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -18,6 +18,7 @@ defmodule RefinderWeb.Router do
     pipe_through :browser
 
     get "/", MapController, :index
+    resources "/properties", PropertiesController, only: [:index, :create]
   end
 
   # Other scopes may use custom stacks.
