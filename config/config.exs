@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :refinder, Refinder.Repo, types: Refinder.PostgresTypes
+
 config :refinder,
   ecto_repos: [Refinder.Repo]
 

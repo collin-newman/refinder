@@ -8,8 +8,20 @@ defmodule RefinderWeb.PropertiesController do
   end
 
   def create(conn, property) do
-    IO.inspect(property)
-    changeset = Property.changeset(%Property{}, property)
+    [x, y] = property["geo_point"]
+
+    point = %Geo.Point{
+      coordinates: {x, y},
+      srid: 4326
+    }
+
+    new_property = %{
+      full_address: property["full_address"],
+      list_price: property["list_price"],
+      geo_point: point
+    }
+
+    changeset = Property.changeset(%Property{}, new_property)
 
     case Repo.insert(changeset) do
       {:ok, property} ->
@@ -17,6 +29,7 @@ defmodule RefinderWeb.PropertiesController do
         render(conn, "success.html")
 
       {:error, _changeset} ->
+        IO.inspect(changeset)
         render(conn, "error.html")
     end
   end

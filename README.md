@@ -1,5 +1,8 @@
 # Refinder
 
+You must have postgis installed, and then you must enable it in your database by running "psql refinder_dev -c "CREATE EXTENSION postgis;""
+TODO: Add this step in the migrations
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
